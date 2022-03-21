@@ -9,3 +9,15 @@ class Herd:
         self.dinosaurs.append(Dinosaur("Velociraptor", 50))
         self.dinosaurs.append(Dinosaur("Tyranosaurus", 25))
         self.dinosaurs.append(Dinosaur("Baby Chicken", 5))
+
+    def is_dead(self):
+        # Returns True if every dino in the herd is at 0 health
+        dead_dinos = 0
+        for dino in self.dinosaurs:
+            if dino.health == 0:
+                dead_dinos += 1
+        
+        if dead_dinos == len(self.dinosaurs):
+            return True
+
+        return False
