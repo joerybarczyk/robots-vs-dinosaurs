@@ -13,26 +13,32 @@ class Battlefield:
         self.battle()
 
     def display_welcome(self):
-        print('############################################################\nWELCOME TO ULTIMATE ROBOTS VS DINOSAURS SUPER SMACKDOWN 2022\n############################################################')
+        print('\n############################################################\nWELCOME TO ULTIMATE ROBOTS VS DINOSAURS SUPER SMACKDOWN 2022\n############################################################')
 
     def battle(self):
         while(True):
-            print("\nDINOSAURS ATTACK THE ROBOTS")
-            self.show_dino_opponent_options()
-            for dinosaur in self.herd.dinosaurs:
-                if dinosaur.health != 0:
-                    self.dino_turn(dinosaur)
+            self.team_dino_turn()
             if self.fleet.is_dead():
                 print("\nDINOSAURS WIN!!!")
                 break
-            print("\nROBOTS ATTACKING THE DINOSAURS")
-            self.show_robo_opponent_options()
-            for robot in self.fleet.robots:
-                if robot.health != 0:
-                    self.robo_turn(robot)
+            self.team_robo_turn()
             if self.herd.is_dead():
                 print("\nROBOTS WIN!!!")
                 break
+
+    def team_dino_turn(self):
+        print("\nDINOSAURS ATTACK THE ROBOTS!")
+        self.show_dino_opponent_options()
+        for dinosaur in self.herd.dinosaurs:
+            if dinosaur.health != 0:
+                self.dino_turn(dinosaur)
+
+    def team_robo_turn(self):
+        print("\nROBOTS ATTACK THE DINOSAURS!")
+        self.show_robo_opponent_options()
+        for robot in self.fleet.robots:
+            if robot.health != 0:
+                self.robo_turn(robot)
 
     def dino_turn(self, dinosaur):
         robo_target = random.choice(self.fleet.robots)

@@ -14,3 +14,17 @@ class Robot:
         print(f"  {dinosaur.name} health remaining: ({dinosaur.health}/100)\n")
         if (dinosaur.health == 0):
             print(f"  {dinosaur.name} has died!\n")
+
+    def choose_weapon(self):
+        while(True):
+            weapons_list = [Weapon("Glock 19", 35), Weapon("Buzz Saw", 40), Weapon("Stun Gun", 30)]
+            print(f"\nPlease select a weapon for {self.name} (number):")
+            for i in range(len(weapons_list)):
+                print(f"({i})\t{weapons_list[i].name}\tDamage: {weapons_list[i].attack_power}")
+            weapon_choice = input(">>> ")
+            if weapon_choice.isnumeric() and int(weapon_choice) in range(len(weapons_list)):
+                self.weapon = weapons_list[int(weapon_choice)]
+                break
+            else:
+                print("ERROR: Please enter the number of the weapon you want to select.")
+
