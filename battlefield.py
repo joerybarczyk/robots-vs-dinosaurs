@@ -30,14 +30,14 @@ class Battlefield:
         print("\nDINOSAURS ATTACK THE ROBOTS!")
         self.show_dino_opponent_options()
         for dinosaur in self.herd.dinosaurs:
-            if dinosaur.health != 0:
+            if dinosaur.health != 0 and dinosaur.energy > 0:
                 self.dino_turn(dinosaur)
 
     def team_robo_turn(self):
         print("\nROBOTS ATTACK THE DINOSAURS!")
         self.show_robo_opponent_options()
         for robot in self.fleet.robots:
-            if robot.health != 0:
+            if robot.health != 0 and robot.power_level > 0:
                 self.robo_turn(robot)
 
     def dino_turn(self, dinosaur):
@@ -54,12 +54,12 @@ class Battlefield:
 
     def show_dino_opponent_options(self):
         for i in range(len(self.herd.dinosaurs)):
-            print(f"  {self.herd.dinosaurs[i].name}\tHealth: {self.herd.dinosaurs[i].health}/100")
+            print(f"  {self.herd.dinosaurs[i].name}\tHealth: {self.herd.dinosaurs[i].health}/100\tEnergy: {self.herd.dinosaurs[i].energy}/100")
         print('\n')
 
     def show_robo_opponent_options(self):
         for i in range(len(self.fleet.robots)):
-            print(f"  {self.fleet.robots[i].name}\tHealth: {self.fleet.robots[i].health}/100")
+            print(f"  {self.fleet.robots[i].name}\tHealth: {self.fleet.robots[i].health}/100\tPower Level: {self.fleet.robots[i].power_level}/100")
         print('\n')
     
     def display_winners(self):

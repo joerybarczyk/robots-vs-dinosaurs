@@ -4,12 +4,15 @@ class Robot:
     def __init__(self, name):
         self.name = name
         self.health = 100
+        self.power_level = 100
         self.weapon = Weapon("Glock 19", 35)
     
     def attack(self, dinosaur):
+        self.power_level -= 10
         dinosaur.health -= self.weapon.attack_power
         if (dinosaur.health < 0):
             dinosaur.health = 0
+            dinosaur.energy = 0
         print(f"  {self.name} attacks {dinosaur.name} with a {self.weapon.name}!")
         print(f"  {dinosaur.name} health remaining: ({dinosaur.health}/100)\n")
         if (dinosaur.health == 0):
