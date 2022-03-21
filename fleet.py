@@ -1,6 +1,10 @@
+from robot import Robot
+
 class Fleet:
     def __init__(self):
-        self.robots = None
+        self.robots = []
 
     def create_fleet(self):
-        pass
+        self.robots.append(Robot("Itchy Bot"))
+        self.robots.append(Robot("Scratchy Bot"))
+        self.robots.append(Robot("Poochie Bot"))
