@@ -7,4 +7,6 @@ class Robot:
         self.weapon = Weapon("Glock 19", 35)
     
     def attack(self, dinosaur):
-        pass
+        dinosaur.health -= self.weapon.attack_power
+        print(f"{self.name} attacks {dinosaur.name} with a {self.weapon.name}!")
+        print(f"{dinosaur.name} health remaining: ({dinosaur.health}/100)")
