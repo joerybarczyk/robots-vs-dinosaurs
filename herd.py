@@ -22,3 +22,14 @@ class Herd:
             return True
 
         return False
+
+    # Print dinosaurs and their statuses
+    def show_herd(self):
+        for i in range(len(self.dinosaurs)):
+            status = f"  {self.dinosaurs[i].name}"
+            if self.dinosaurs[i].health == 0:
+                status += "\tDEAD"
+            else:
+                status += f"\tHealth: {self.dinosaurs[i].health}/100\tEnergy: {self.dinosaurs[i].energy}/100"
+            print(status)
+        print('\n')

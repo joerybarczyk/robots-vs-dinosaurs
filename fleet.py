@@ -29,3 +29,13 @@ class Fleet:
             return True
 
         return False
+
+    def show_fleet(self):
+        for i in range(len(self.robots)):
+            status = f"  {self.robots[i].name}"
+            if self.robots[i].health == 0:
+                status += "\tDEAD"
+            else:
+                status += f"\tHealth: {self.robots[i].health}/100\tPower Level: {self.robots[i].power_level}/100"
+            print(status)
+        print('\n')
